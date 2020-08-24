@@ -3,30 +3,26 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="style.css" />
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+            integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+            crossorigin="anonymous"
+        />
         <link
             href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
             rel="stylesheet"
         />
+        <link rel="stylesheet" href="/css/style.css" />
         <title>HTML & CSS</title>
     </head>
     <body>
-        <main>
-            <article>
-                <h2>Judul Puisi</h2>
-                <p id="text" class="simple-text">
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nostrum id voluptate
-                    aliquam necessitatibus perspiciatis reprehenderit, pariatur illum, distinctio
-                    neque qui dolor, fugiat deleniti ducimus amet facere autem quo numquam quidem?
-                </p>
-            </article>
-
-            <article>
-                <h2>Box sizing</h2>
-                <div class="box1"></div>
-                <div class="box2"></div>
-                <div class="box3"></div>
-            </article>
-        </main>
+        <div class="container-fluid my-container">
+            <div class="row">
+                <header class="col-8 order-2"></header>
+                <aside class="col-1 order-1 side-left"></aside>
+                <aside class="col-3 order-3 side-right"></aside>
+            </div>
+        </div>
     </body>
 </html>

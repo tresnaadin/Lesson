@@ -1,0 +1,20 @@
+/* Simple Pre-defined clasess */
+
+.mybtn {
+    padding: 8px 30px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+}
+
+.mycontainer {
+    border: 2px solid gold;
+}
+
+.myrow {
+    border: 2px solid green;
+}
+
+.mycol {
+    border: 2px dotted red;
+}
