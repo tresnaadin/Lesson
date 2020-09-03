@@ -27,4 +27,14 @@ Product.search = (req, res) => {
     return res.send(`your data here ${name}`)
 }
 
+Product.test = async (req, res) => {
+    try {
+        const { name, stock, price } = req.params
+        const data = model.Add(name, stock, price)
+        return res.send("data berhasil ditambahkan")
+    } catch (error) {
+        res.send(error)
+    }
+}
+
 module.exports = Product

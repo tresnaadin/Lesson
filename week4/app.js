@@ -13,6 +13,7 @@ server.use(morgan("dev"))
 
 server.use(routes)
 
+
 database
     .connect()
     .then((result) => {
