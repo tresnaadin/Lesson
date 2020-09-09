@@ -4,6 +4,7 @@ const bcr = require("bcrypt")
 const jwt = require("jsonwebtoken")
 
 class Auth {
+
     login = async (req, res) => {
         try {
             const passDB = await model.getByUser(req.body.username)
@@ -18,9 +19,11 @@ class Auth {
             if (check) {
                 const result = await this.setToken(req.body.username)
                 return respone(res, 200, result)
+                
             } else {
                 return respone(res, 200, "gagal login")
             }
+
         } catch (error) {
             console.log(error)
             respone(res, 500, error)
