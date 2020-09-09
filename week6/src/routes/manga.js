@@ -1,10 +1,11 @@
 const express = require("express")
 const controller = require("../controller/manga")
-const validate = require("../middleware/validate")
+const chache = require("../middleware/chace")
+const upload = require("../middleware/upload")
 const Route = express.Router()
 
-Route.get("/", validate, controller.all)
-Route.post("/", validate, controller.add)
+Route.get("/", chache, controller.all)
+Route.post("/", upload.single("image"), controller.add)
 Route.put("/", controller.edit)
 
 module.exports = Route

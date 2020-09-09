@@ -1,10 +1,13 @@
 const model = require("../model/manga")
 const result = require("../helpers/respon")
+const redis = require("../config/redis")
 const Manga = {}
 
 Manga.all = async (req, res) => {
     try {
         const data = await model.GetAll()
+        const data_redis = JSON.stringify(data)
+        redis.redisdb.setex("mangaAll", 30, data_redis)
         return result(res, 200, data)
     } catch (error) {
         return res.status(500).json(error)
@@ -13,10 +16,11 @@ Manga.all = async (req, res) => {
 
 Manga.add = async (req, res) => {
     try {
+
         if (req.file === undefined) {
-            console.log(req.file)
             return res.status(500).json("Data Kosong")
         }
+
         const datas = {
             name: req.body.name,
             chapter: req.body.chapter,
@@ -26,6 +30,7 @@ Manga.add = async (req, res) => {
         const data = await model.Add(datas)
         return result(res, 201, datas)
     } catch (error) {
+        
         return res.status(500).json(error)
     }
 }
