@@ -1,6 +1,5 @@
 const model = require("../model/users")
 const respone = require("../helpers/respon")
-const hashPassword = require("../helpers/hash")
 
 class Users {
     async getAll(req, res) {
@@ -32,11 +31,9 @@ class Users {
 
     async addUsers(req, res) {
         try {
-            const pass = await hashPassword(req.body.password)
-
             const data = {
                 username: req.body.username,
-                password: pass,
+                password: req.body.password,
             }
             const result = await model.addUsers(data)
             return respone(res, 200, data)
