@@ -1,3 +1,4 @@
+require('dotenv/config')
 const express = require("express")
 const corss = require("cors")
 const server = express()
@@ -7,7 +8,9 @@ const routes = require("./src/main")
 const database = require("./src/config/db")
 const port = 9000
 
+// Enable cors
 server.use(corss())
+
 server.use(bodyParser.urlencoded({ extended: false }))
 server.use(bodyParser.json())
 server.use(morgan("dev"))

@@ -1,7 +1,9 @@
 const model = require("../model/users")
 const respone = require("../helpers/respon")
+const hashPassword = require("../helpers/hash")
 
 class Users {
+    
     async getAll(req, res) {
         try {
             const result = await model.getAll()
@@ -31,10 +33,14 @@ class Users {
 
     async addUsers(req, res) {
         try {
+
+            const passHash = await hashPassword(req.body.password)
+
             const data = {
                 username: req.body.username,
-                password: req.body.password,
+                password: passHash,
             }
+            
             const result = await model.addUsers(data)
             return respone(res, 200, data)
         } catch (error) {

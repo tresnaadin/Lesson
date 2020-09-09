@@ -38,9 +38,7 @@ class Users {
     }
 
     addUsers(data) {
-        console.log(data)
         const q = `INSERT INTO users(username, password) VALUES ('${data.username}','${data.password}')`
-        console.log(q)
         return new Promise((resolve, reject) => {
             db.query(q)
                 .then((res) => {
