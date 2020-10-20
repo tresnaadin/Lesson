@@ -146,5 +146,5 @@ ssh -i ~/.ssh/id_rsa ubuntu@api.$NAME
 18. delete cluster
 
 ```bash
-kops delete cluster --name=$NAME --state=$KOPS_STATE_STORE
+kops delete cluster --name=$NAME --state=$KOPS_STATE_STORE --yes
 ```
