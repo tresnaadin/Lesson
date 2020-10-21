@@ -71,13 +71,13 @@ aws configure
 
 ```bash
 aws s3api create-bucket \
-    --bucket name-youre-bucket \
+    --bucket k8s-example-store \
     --region us-east-1 # <- example region
 
 # Note: We STRONGLY recommend versioning your S3 bucket in case you ever need to revert or recover a previous state store.
 
 # versioning buccket
-aws s3api put-bucket-versioning --bucket name-youre-bucket --versioning-configuration Status=Enabled
+aws s3api put-bucket-versioning --bucket k8s-devops-store --versioning-configuration Status=Enabled
 
 ```
 
@@ -88,8 +88,8 @@ vi .bashrc
 
 # copy line below and put on top of .bashrc file
 
-export KOPS_STATE_STORE=s3://name-youre-bucket
-export NAME=name.youre.cluster
+export KOPS_STATE_STORE=s3://k8s-devops-store
+export NAME=k8s.example.com
 
 # run this after copy
 source .bashrc
@@ -110,7 +110,7 @@ aws ec2 describe-availability-zones
 13. create cluster with kops
 
 ```bash
-kops create cluster --cloud=aws --zones=youre-zone --name=$NAME --node-size=t2.medium --master-size=t2.medium --dns-zone=youre-dns.com --dns private
+kops create cluster --cloud=aws --zones=us-east-1a --name=$NAME --node-size=t2.medium --master-size=t2.medium --dns-zone=example.com --dns private
 
 # example
 # kops create cluster --cloud=aws --zones=us-east-1a --name=$NAME --node-size=t2.medium --master-size=t2.medium --dns-zone=devops.com --dns private
